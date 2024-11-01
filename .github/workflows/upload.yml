@@ -17,7 +17,7 @@ jobs:
         - name: Conversion step
           uses: TTengs/MarkdownToConfluence@v3
           with:
-            fileslocation: 'documentation'
+            fileslocation: 'docs'
             confluence_url: 'https://nallurisrini01-1729828114293.atlassian.net'
             confluence_space_key: 'ConfTest1'
             auth_username: ${{ secrets.ATLASSIAN_USERNAME }}
