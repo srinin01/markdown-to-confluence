@@ -1,0 +1,24 @@
+on:
+    push:
+      branches:
+        - "main"
+      paths:
+        - "docs/**"
+
+jobs:
+    push_to_confluence:
+      runs-on: ubuntu-latest
+      name: Converting Markdown to Confluence
+      steps:
+        # To use this repository's private action,
+        # you must check out the repository
+        - name: Checkout
+          uses: actions/checkout@v3
+        - name: Conversion step
+          uses: TTengs/MarkdownToConfluence@v3
+          with:
+            fileslocation: 'documentation'
+            confluence_url: 'https://nallurisrini01-1729828114293.atlassian.net'
+            confluence_space_key: 'ConfTest1'
+            auth_username: ${{ secrets.ATLASSIAN_USERNAME }}
+            auth_api_token: ${{ secrets.ATLASSIAN_API_TOKEN }}
